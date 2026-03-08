@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # API Keys
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+DASHSCOPE_API_KEY = os.getenv("DASHSCOPE_API_KEY", "")
 HF_TOKEN = os.getenv("HF_TOKEN", "")
 
 # 输出目录
@@ -103,12 +103,15 @@ HF_MAX_MODELS = 20
 HF_MODEL_TAGS = ["text-generation", "text-to-image", "multimodal", "reinforcement-learning"]
 
 # ────────────────────────────────────────────────
-# AI 处理配置
+# AI 处理配置（阿里云通义千问 DashScope）
 # ────────────────────────────────────────────────
-CLAUDE_MODEL = "claude-haiku-4-5-20251001"      # 快速处理用
-CLAUDE_MODEL_STRONG = "claude-sonnet-4-6"        # 最终报告生成用
-MAX_ITEMS_PER_SECTION = 6                         # 每个板块最多条目数
-MIN_RELEVANCE_SCORE = 6                           # 最低相关性分数 (1-10)
+# DashScope OpenAI 兼容接口地址
+DASHSCOPE_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+
+QWEN_MODEL = "qwen-turbo"          # 快速批处理用（省钱）
+QWEN_MODEL_STRONG = "qwen-max"     # 高质量摘要生成用
+MAX_ITEMS_PER_SECTION = 6          # 每个板块最多条目数
+MIN_RELEVANCE_SCORE = 6            # 最低相关性分数 (1-10)
 
 # 报告板块定义
 REPORT_SECTIONS = ["资讯", "推特", "产品", "HuggingFace&Github", "投融资", "学习"]

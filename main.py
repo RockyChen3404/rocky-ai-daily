@@ -14,7 +14,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-from config import ANTHROPIC_API_KEY, OUTPUT_DIR, LOG_LEVEL
+from config import DASHSCOPE_API_KEY, OUTPUT_DIR, LOG_LEVEL
 from utils.helpers import setup_logging
 
 
@@ -34,10 +34,10 @@ def parse_args() -> argparse.Namespace:
 
 
 def check_prerequisites() -> bool:
-    if not ANTHROPIC_API_KEY:
-        print("❌ 错误：未找到 ANTHROPIC_API_KEY")
-        print("   请复制 .env.example 为 .env，并填入你的 API Key")
-        print("   获取地址：https://console.anthropic.com/")
+    if not DASHSCOPE_API_KEY:
+        print("❌ 错误：未找到 DASHSCOPE_API_KEY")
+        print("   请复制 .env.example 为 .env，并填入你的阿里云 DashScope API Key")
+        print("   获取地址：https://dashscope.console.aliyun.com/ → API-KEY管理")
         return False
     return True
 
